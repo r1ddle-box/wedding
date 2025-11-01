@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enrico & Laura - 12 Settembre 2026</title>
+    <title>Enrico & Laura</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤍</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -328,6 +329,7 @@
         
         .timeline-date {
             font-weight: bold;
+            font-size: 1.2rem;
             color: var(--color-fango);
             margin-bottom: 10px;
             display: block;
@@ -383,6 +385,285 @@
         .form-group textarea:focus {
             border-color: var(--color-dusty-rose);
             outline: none;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        
+        .checkbox-item:hover {
+            background-color: var(--color-blush);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+            cursor: pointer;
+            accent-color: var(--color-dusty-rose);
+        }
+        
+        .checkbox-item input[type="checkbox"]:disabled {
+            cursor: not-allowed;
+            opacity: 0.4;
+        }
+        
+        .checkbox-item label {
+            cursor: pointer;
+            font-weight: 400;
+            margin: 0;
+        }
+        
+        .checkbox-item.disabled {
+            opacity: 0.5;
+        }
+        
+        .checkbox-item.disabled label {
+            cursor: not-allowed;
+        }
+        
+        .dietary-section {
+            margin-bottom: 20px;
+        }
+        
+        .dietary-section h4 {
+            font-size: 1rem;
+            color: var(--color-topo);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        /* Modale */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(93, 93, 93, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            margin-bottom: 25px;
+        }
+        
+        .modal-header h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-topo);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--color-taupe);
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+        
+        .modal-close:hover {
+            color: var(--color-dusty-rose);
+        }
+        
+        .modal-body {
+            margin-bottom: 25px;
+        }
+        
+        .modal-body p {
+            margin-bottom: 15px;
+            color: var(--color-dark);
+        }
+        
+        .modal-input-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .modal-input-group button {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--color-dusty-rose);
+            background-color: white;
+            color: var(--color-dusty-rose);
+            border-radius: 5px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .modal-input-group button:hover {
+            background-color: var(--color-dusty-rose);
+            color: white;
+        }
+        
+        .modal-input-group input {
+            width: 80px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .btn-secondary {
+            background-color: var(--color-taupe);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--color-dark);
+        }
+        
+        /* Campi condizionali */
+        .conditional-fields {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .conditional-fields.visible {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Modale conferma invio */
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(93, 93, 93, 0.8);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .confirmation-modal.active {
+            display: flex;
+        }
+        
+        .confirmation-modal-content {
+            background-color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: confirmModalSlideIn 0.5s ease;
+        }
+        
+        @keyframes confirmModalSlideIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .confirmation-icon {
+            font-size: 4rem;
+            color: var(--color-sage);
+            margin-bottom: 20px;
+            animation: checkmarkPop 0.6s ease 0.2s both;
+        }
+        
+        @keyframes checkmarkPop {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        
+        .confirmation-modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-topo);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .confirmation-modal-content p {
+            color: var(--color-dark);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .confirmation-modal-content .btn {
+            min-width: 150px;
         }
         
         .btn {
@@ -452,6 +733,65 @@
         .gift-option h3 {
             margin-bottom: 15px;
             color: var(--color-dusty-rose);
+        }
+        
+        /* Pulsante copia IBAN */
+        .iban-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .iban-container p {
+            margin: 0;
+        }
+        
+        .copy-iban-btn {
+            padding: 8px 16px;
+            border-radius: 50px;
+            background-color: var(--color-taupe);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .copy-iban-btn:hover {
+            background-color: var(--color-dusty-rose);
+            transform: scale(1.1);
+        }
+        
+        .copy-iban-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .copy-feedback {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--color-sage);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            pointer-events: none;
+        }
+        
+        .copy-feedback.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Footer */
@@ -602,10 +942,10 @@
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#story">La Nostra Storia</a></li>
+                    <li><a href="#story">Intro</a></li>
                     <li><a href="#timeline">Timeline</a></li>
                     <li><a href="#rsvp">RSVP</a></li>
-                    <li><a href="#gifts">Regali</a></li>
+                    <li><a href="#gifts">Pensieri</a></li>
                 </ul>
             </nav>
         </div>
@@ -619,8 +959,9 @@
             <h2>Insieme per sempre</h2>
             <div class="date-place">
                 <p>12 Settembre 2026</p>
-                <p>Chiesa Duomo di Carpi - ore 17:00</p>
-                <p>Villa La Personala, Mirandola - ore 18:15</p>
+                <p>Chiesa San Bernardino Realino</p>
+                <p>Via G. Alghisi 15,  Carpi</p>
+                
             </div>
             <div class="countdown" id="countdown">
                 <div class="countdown-item">
@@ -647,17 +988,17 @@
         <!-- Storia della coppia -->
         <section class="our-story" id="story">
             <div class="section-title">
-                <h2>La Nostra Storia</h2>
+                <h2>Ebbene.. ci sposiamo!</h2>
             </div>
             <div class="story-container">
                 <div class="story-image">
-                    <img src="https://images.unsplash.com/photo-1532710093739-9470acff878f?ixlib=rb-4.0.3" alt="Laura e Enrico">
+                    <img src="image2.jpeg" alt="Laura e Enrico">
                 </div>
                 <div class="story-content">                    
-                    <p>Ci siamo incontrati per la prima volta durante una calda estate a Modena. Era il 2018 e nessuno di noi immaginava che quell'incontro casuale sarebbe stato l'inizio della nostra storia d'amore.</p>
-                    <p>Laura stava visitando la città per un weekend con amici, mentre Enrico era appena tornato da un viaggio di lavoro. Ci siamo incrociati in un piccolo caffè del centro, e da quel momento non ci siamo più lasciati.</p>
-                    <p>Abbiamo scoperto di condividere la passione per i viaggi, la buona cucina e le lunghe passeggiate in campagna. Dopo due anni di relazione, Enrico ha scelto il tramonto sulla spiaggia di Rimini per chiedere a Laura di passare il resto della vita insieme.</p>
-                    <p>Oggi, con grande gioia, vi invitiamo a celebrare con noi il giorno più importante delle nostre vite.</p>
+                    <p>I due ragazzi, conosciuti un po' per caso a fine 2018, non si aspettavano di arrivare davvero fin qua, o forse sì..</p>
+                    <p>La leggenda giapponese del "filo rosso del destino" dice che un filo invisibile e indistruttibile lega ogni persona alla propria anima gemella, noi possiamo confermare di aver provato da subito questa sensazione, e da allora non ci siamo più separati.</p>
+                    <p>Con il covid abbiamo imparato cosa significasse la distanza, con il tempo abbiamo imparato a vivere la quotidianità l'uno con l'altra, a supportarci nei momenti tristi e a celebrare insieme i momenti di gioia.</p>
+                    <p>E adesso, dopo ben sette anni insieme, siamo felici di comunicarvi che abbiamo scelto di sposarci!</p>
                 </div>
             </div>
         </section>
@@ -672,35 +1013,35 @@
                     <div class="timeline-content">
                         <span class="timeline-date">Ore 15</span>
                         <h3>Cerimonia</h3>
-                        <p>Vi aspettiamo presso la chiesa XYZ a Carpi in via Ciccio Pasticcio per la celebrazione religiosa.</p>
+                        <p>Vi aspettiamo presso la chiesa San Bernardino Realino a Carpi, in via G. Alghisi 15, dove si terrà la celebrazione religiosa.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Ore 17</span>
                         <h3>Ricevimento</h3>
-                        <p>Ci riuniremo per un ricco aperitivo a buffet presso Villa La Personala in via Personali 17 a Mirandola (MO).</p>
+                        <p>Ci riuniremo per continuare i festeggiamenti presso Villa La Personala in via Personali 17 a Mirandola, dove vi aspetterà un ricco aperitivo a buffet.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Ore 19:30</span>
                         <h3>Cena</h3>
-                        <p>Ci sposteremo nella zona serale per prendere posto e cenare tutti insieme attorno alla piscina.</p>
+                        <p>Ci sposteremo nella zona serale per prendere posto e cenare tutti insieme.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Ore 23</span>
                         <h3>Taglio Torta</h3>
-                        <p>Ci riuniamo tuttiper il momento più dolce della serata, il taglio torta.</p>
+                        <p>Ci riuniamo tutti per il momento più dolce della serata, il taglio torta.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Ore 00:00</span>
                         <h3>DJ Set</h3>
-                        <p>Per chi vuole, la festa continua in pista da ballo.</p>
+                        <p>Per chi vuole, la festa continua sulla pista da ballo.</p>
                     </div>
                 </div>
             </div>
@@ -718,13 +1059,20 @@
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">Numero di Ospiti</label>
-                        <select id="guests" name="guests" required>
+                        <label for="attendance">Parteciperai al matrimonio?</label>
+                        <select id="attendance" name="attendance" required>
                             <option value="" disabled selected>Seleziona</option>
+                            <option value="yes">Con gioia parteciperò</option>
+                            <option value="no">Con dispiacere non potrò partecipare</option>
+                        </select>
+                    </div>
+                    
+                    <div id="conditionalFields" class="conditional-fields">
+                    <div class="form-group">
+                        <label for="guests">Numero di Ospiti (oltre a te)</label>
+                        <select id="guests" name="guests">
+                            <option value="" disabled selected>Seleziona</option>
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -733,31 +1081,121 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="attendance">Parteciperai al matrimonio?</label>
-                        <select id="attendance" name="attendance" required>
-                            <option value="" disabled selected>Seleziona</option>
-                            <option value="yes">Con gioia parteciperò</option>
-                            <option value="no">Con dispiacere non potrò partecipare</option>
-                        </select>
+                        <label>Allergie e Restrizioni Alimentari</label>
+                        <p style="font-size: 0.9rem; color: var(--color-taupe); margin-top: 5px; font-style: italic;" id="dietaryHint">Seleziona prima il numero di ospiti per abilitare questa sezione.</p>
+                        
+                        <div class="dietary-section">
+                            
+                            <div class="checkbox-group">
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="glutine" name="allergies[]" value="glutine" disabled>
+                                    <label for="glutine">Glutine (Celiachia)</label>
+                                </div>
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="lattosio" name="allergies[]" value="lattosio" disabled>
+                                    <label for="lattosio">Lattosio</label>
+                                </div>
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="uova" name="allergies[]" value="uova" disabled>
+                                    <label for="uova">Uova</label>
+                                </div>
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="frutta-guscio" name="allergies[]" value="frutta-guscio" disabled>
+                                    <label for="frutta-guscio">Frutta secca</label>
+                                </div>                                
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="crostacei" name="allergies[]" value="crostacei" disabled>
+                                    <label for="crostacei">Crostacei</label>
+                                </div>
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="soia" name="allergies[]" value="soia" disabled>
+                                    <label for="soia">Soia</label>
+                                </div>                                
+                            </div>
+                        </div>
+                        
+                        <div class="dietary-section">
+                            
+                            <div class="checkbox-group">
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="vegetariano" name="diet[]" value="vegetariano" disabled>
+                                    <label for="vegetariano">Vegetariano</label>
+                                </div>
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="vegano" name="diet[]" value="vegano" disabled>
+                                    <label for="vegano">Vegano</label>
+                                </div>
+                                <div class="checkbox-item disabled">
+                                    <input type="checkbox" id="halal" name="diet[]" value="halal" disabled>
+                                    <label for="halal">Halal</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="message">Messaggio (diete speciali, note, ecc.)</label>
-                        <textarea id="message" name="message" rows="4"></textarea>
+                        <label for="message">Note aggiuntive</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Altre informazioni o note speciali..."></textarea>
                     </div>
+                    </div>
+                    
                     <button type="submit" class="btn">Conferma</button>
                 </form>
             </div>
         </section>
+        
+        <!-- Modale conferma invio -->
+        <div class="confirmation-modal" id="confirmationModal">
+            <div class="confirmation-modal-content">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Grazie!</h3>
+                <p>Abbiamo ricevuto la tua risposta. Non vediamo l'ora di festeggiare insieme a te!</p>
+                <button type="button" class="btn" id="closeConfirmation">Chiudi</button>
+            </div>
+        </div>
+        
+        <!-- Modale per numero persone con restrizione -->
+        <div class="modal-overlay" id="dietaryModal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">&times;</button>
+                <div class="modal-header">
+                    <h3>Specificare numero di persone</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Quanti ospiti hanno la restrizione <strong id="restrictionName"></strong>?</p>
+                    <div class="modal-input-group">
+                        <button type="button" id="decreaseBtn">-</button>
+                        <input type="number" id="restrictionCount" min="1" value="1" readonly>
+                        <button type="button" id="increaseBtn">+</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelModal">Annulla</button>
+                    <button type="button" class="btn" id="confirmModal">Conferma</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Regali -->
         <section class="gifts-section" id="gifts">
             <div class="section-title">
-                <h2>Donazioni & Regali</h2>
+                <h2>Pensieri e Regali</h2>
             </div>
             <div class="gifts-container">
-                <p>La vostra presenza è il regalo più grande che potremmo desiderare. Se desiderate comunque contribuire al nostro viaggio di nozze o alla creazione della nostra nuova casa, vi ringraziamo di cuore per il vostro pensiero.</p>
-                
-                <div class="gift-options">
+                <p>La vostra presenza è il regalo più grande che potremmo desiderare, ma se desiderate comunque contribuire al nostro viaggio di nozze o alla creazione dei nostri progetti futuri, vi ringraziamo di cuore per il vostro pensiero.
+                    <br>Potete lasciare qui il vostro dono: 
+                </p>
+                <p><b>Intestatari:</b> Bergamini Enrico, Cruciata Laura</p>
+                <div class="iban-container">
+                    <p><b>IBAN:</b> IT39Z0503401753000000123290</p>
+                    <button class="copy-iban-btn" id="copyIbanBtn" title="Copia IBAN">
+                        <i class="far fa-copy"></i>
+                        <span>Copia</span>
+                    </button>
+                </div>
+
+                <!-- <div class="gift-options">
                     <div class="gift-option">
                         <i class="fas fa-gift"></i>
                         <h3>Lista Nozze</h3>
@@ -773,9 +1211,14 @@
                         <h3>Regalo in Denaro</h3>
                         <p>Un contributo in denaro è sempre apprezzato e ci aiuterà a realizzare i nostri progetti futuri insieme.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
+
+        <!-- Feedback copia IBAN -->
+        <div class="copy-feedback" id="copyFeedback">
+            <i class="fas fa-check-circle"></i> IBAN copiato negli appunti!
+        </div>
 
         <!-- Footer -->
         <footer>
@@ -783,15 +1226,15 @@
                 <div class="footer-logo">Enrico & Laura</div>
                 <div class="footer-info">
                     <p>12 Settembre 2026 - Carpi e Mirandola, Modena</p>
-                    <p>Per informazioni: info@lauraeenrico.it | +39 123 456 789</p>
+                    
                 </div>
-                <div class="social-icons">
+                <!-- <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-pinterest"></i></a>
                     <a href="#"><i class="far fa-envelope"></i></a>
-                </div>
-                <p class="copyright">© 2026 Enrico & Laura. Tutti i diritti riservati.</p>
+                </div> -->
+                
             </div>
         </footer>
 
@@ -863,16 +1306,295 @@
                 }
             }, 1000);
             
+            // Gestione modale restrizioni alimentari
+            const dietaryModal = document.getElementById('dietaryModal');
+            const modalClose = document.getElementById('closeModal');
+            const cancelModal = document.getElementById('cancelModal');
+            const confirmModal = document.getElementById('confirmModal');
+            const restrictionNameEl = document.getElementById('restrictionName');
+            const restrictionCountInput = document.getElementById('restrictionCount');
+            const decreaseBtn = document.getElementById('decreaseBtn');
+            const increaseBtn = document.getElementById('increaseBtn');
+            const guestsSelect = document.getElementById('guests');
+            
+            let currentCheckbox = null;
+            const restrictionCounts = {};
+            
+            // Gestione visibilità campi condizionali
+            const attendanceSelect = document.getElementById('attendance');
+            const conditionalFields = document.getElementById('conditionalFields');
+            
+            attendanceSelect.addEventListener('change', function() {
+                if (this.value === 'yes') {
+                    conditionalFields.classList.add('visible');
+                    // Rendi il campo ospiti obbligatorio se partecipa
+                    guestsSelect.setAttribute('required', 'required');
+                } else {
+                    conditionalFields.classList.remove('visible');
+                    // Rimuovi required se non partecipa
+                    guestsSelect.removeAttribute('required');
+                    // Reset dei campi
+                    guestsSelect.value = '';
+                    // Deseleziona tutte le checkbox
+                    document.querySelectorAll('input[name="allergies[]"], input[name="diet[]"]').forEach(cb => {
+                        cb.checked = false;
+                        cb.disabled = true;
+                        cb.parentElement.classList.add('disabled');
+                    });
+                    // Pulisci i conteggi
+                    Object.keys(restrictionCounts).forEach(key => delete restrictionCounts[key]);
+                    // Mostra hint
+                    const dietaryHint = document.getElementById('dietaryHint');
+                    if (dietaryHint) {
+                        dietaryHint.style.display = 'block';
+                    }
+                    // Pulisci note
+                    document.getElementById('message').value = '';
+                }
+            });
+            
+            // Abilita/disabilita checkbox restrizioni in base al numero ospiti
+            guestsSelect.addEventListener('change', function() {
+                const dietaryHint = document.getElementById('dietaryHint');
+                const allDietaryCheckboxes = document.querySelectorAll('input[name="allergies[]"], input[name="diet[]"]');
+                
+                if (this.value && this.value !== '') {
+                    // Abilita tutti i checkbox
+                    allDietaryCheckboxes.forEach(checkbox => {
+                        checkbox.disabled = false;
+                        checkbox.parentElement.classList.remove('disabled');
+                    });
+                    if (dietaryHint) {
+                        dietaryHint.style.display = 'none';
+                    }
+                } else {
+                    // Disabilita tutti i checkbox
+                    allDietaryCheckboxes.forEach(checkbox => {
+                        checkbox.disabled = true;
+                        checkbox.checked = false;
+                        checkbox.parentElement.classList.add('disabled');
+                    });
+                    // Pulisci i conteggi
+                    Object.keys(restrictionCounts).forEach(key => delete restrictionCounts[key]);
+                    if (dietaryHint) {
+                        dietaryHint.style.display = 'block';
+                    }
+                }
+            });
+            
+            // Gestione checkbox restrizioni
+            document.querySelectorAll('input[name="allergies[]"], input[name="diet[]"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const extraGuests = parseInt(guestsSelect.value);
+                    const totalPeople = extraGuests + 1; // Totale persone includendo chi compila il form
+                    
+                    if (this.checked) {
+                        // Se solo 1 persona totale (0 ospiti extra), salva automaticamente 1
+                        if (totalPeople === 1) {
+                            restrictionCounts[this.id] = 1;
+                        } else {
+                            // Più di 1 persona, apri modale
+                            currentCheckbox = this;
+                            const label = this.nextElementSibling.textContent;
+                            restrictionNameEl.textContent = label;
+                            
+                            // Imposta valore di default o salvato
+                            const savedCount = restrictionCounts[this.id] || 1;
+                            restrictionCountInput.value = savedCount;
+                            restrictionCountInput.max = totalPeople;
+                            
+                            dietaryModal.classList.add('active');
+                        }
+                    } else {
+                        // Deselezionato, rimuovi dal conteggio
+                        delete restrictionCounts[this.id];
+                    }
+                });
+            });
+            
+            // Pulsanti incremento/decremento
+            decreaseBtn.addEventListener('click', () => {
+                const current = parseInt(restrictionCountInput.value);
+                if (current > 1) {
+                    restrictionCountInput.value = current - 1;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', () => {
+                const current = parseInt(restrictionCountInput.value);
+                const max = parseInt(restrictionCountInput.max);
+                if (current < max) {
+                    restrictionCountInput.value = current + 1;
+                }
+            });
+            
+            // Chiudi modale
+            function closeModalFunction() {
+                if (currentCheckbox && !restrictionCounts[currentCheckbox.id]) {
+                    // Se annullato, deseleziona checkbox
+                    currentCheckbox.checked = false;
+                }
+                dietaryModal.classList.remove('active');
+                currentCheckbox = null;
+            }
+            
+            modalClose.addEventListener('click', closeModalFunction);
+            cancelModal.addEventListener('click', closeModalFunction);
+            
+            // Click fuori dalla modale
+            dietaryModal.addEventListener('click', (e) => {
+                if (e.target === dietaryModal) {
+                    closeModalFunction();
+                }
+            });
+            
+            // Conferma modale
+            confirmModal.addEventListener('click', () => {
+                if (currentCheckbox) {
+                    restrictionCounts[currentCheckbox.id] = parseInt(restrictionCountInput.value);
+                }
+                dietaryModal.classList.remove('active');
+                currentCheckbox = null;
+            });
+            
             // Form RSVP
             const rsvpForm = document.getElementById('rsvpForm');
             
-            rsvpForm.addEventListener('submit', (e) => {
+            rsvpForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                // Qui normalmente si invierebbero i dati al server
-                // Per questo esempio mostriamo solo un messaggio
-                alert('Grazie per la tua conferma! Abbiamo registrato la tua partecipazione.');
-                rsvpForm.reset();
+                // CONFIGURAZIONE GOOGLE FORM
+                const GOOGLE_FORM_ID = '1FAIpQLSertHjF5v-1ioG2tMaF30NFKkJT2HEMyoyfGTfNsRKZmsE5zg';
+                const GOOGLE_FORM_URL = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+                
+                // Entry IDs dei campi del Google Form (CORRETTI DAL CURL)
+                const ENTRY_NAME = 'entry.2120908857';        // Campo Nome e Cognome
+                const ENTRY_MESSAGE = 'entry.476201574';      // Campo Note
+                const ENTRY_ATTENDANCE = 'entry.60838895';    // Campo Partecipazione (Si/No)
+                const ENTRY_GUESTS = 'entry.840590907';       // Campo Numero Ospiti (CORRETTO)
+                
+                // Entry IDs per ogni tipo di allergia/restrizione (CORRETTI DAL CURL)
+                const ALLERGIES_ENTRIES = {
+                    'glutine': 'entry.1896458922',
+                    'uova': 'entry.917132017',
+                    'crostacei': 'entry.929587539',      // CORRETTO
+                    'lattosio': 'entry.1579427348',
+                    'frutta-guscio': 'entry.1726447398',
+                    'soia': 'entry.496814064',
+                    'vegetariano': 'entry.756291626',
+                    'vegano': 'entry.1522000083',        // CORRETTO
+                    'halal': 'entry.743096447'
+                };
+                
+                // Raccogli i dati dal form nell'ordine corretto
+                const formData = new FormData();
+                
+                // 1. Nome e Cognome
+                const name = document.getElementById('name').value.trim();
+                formData.append(ENTRY_NAME, name);
+                
+                // 2. Note (sempre, anche se vuoto)
+                const message = document.getElementById('message').value.trim();
+                formData.append(ENTRY_MESSAGE, message);
+                
+                // 3. Partecipazione (Si o No - come nel Google Form)
+                const attendance = document.getElementById('attendance').value;
+                const attendanceValue = attendance === 'yes' ? 'Si' : 'No';
+                formData.append(ENTRY_ATTENDANCE, attendanceValue);
+                
+                // 4. Numero ospiti (sempre come stringa)
+                let guestsValue = '0';
+                if (attendance === 'yes') {
+                    const guests = document.getElementById('guests').value;
+                    guestsValue = guests || '0';
+                }
+                formData.append(ENTRY_GUESTS, String(guestsValue));
+                
+                // 5. Allergie/Restrizioni - inizializza tutto a "0" (stringa)
+                const allergyValues = {
+                    'glutine': '0',
+                    'uova': '0',
+                    'crostacei': '0',
+                    'lattosio': '0',
+                    'frutta-guscio': '0',
+                    'soia': '0',
+                    'vegetariano': '0',
+                    'vegano': '0',
+                    'halal': '0'
+                };
+                
+                // Se partecipa, aggiorna con i valori effettivi
+                if (attendance === 'yes') {
+                    document.querySelectorAll('input[name="allergies[]"]:checked, input[name="diet[]"]:checked').forEach(checkbox => {
+                        const checkboxId = checkbox.id;
+                        const count = restrictionCounts[checkboxId] || 1;
+                        
+                        if (allergyValues.hasOwnProperty(checkboxId)) {
+                            allergyValues[checkboxId] = String(count);
+                        }
+                    });
+                }
+                
+                // Aggiungi tutti i campi allergie nell'ordine specifico
+                formData.append(ALLERGIES_ENTRIES['glutine'], allergyValues['glutine']);
+                formData.append(ALLERGIES_ENTRIES['uova'], allergyValues['uova']);
+                formData.append(ALLERGIES_ENTRIES['crostacei'], allergyValues['crostacei']);
+                formData.append(ALLERGIES_ENTRIES['lattosio'], allergyValues['lattosio']);
+                formData.append(ALLERGIES_ENTRIES['frutta-guscio'], allergyValues['frutta-guscio']);
+                formData.append(ALLERGIES_ENTRIES['soia'], allergyValues['soia']);
+                formData.append(ALLERGIES_ENTRIES['vegetariano'], allergyValues['vegetariano']);
+                formData.append(ALLERGIES_ENTRIES['vegano'], allergyValues['vegano']);
+                formData.append(ALLERGIES_ENTRIES['halal'], allergyValues['halal']);
+                
+                // Parametri aggiuntivi richiesti da Google Forms
+                formData.append('fvv', '1');
+                formData.append('pageHistory', '0');
+                
+                // Invia i dati al Google Form
+                try {
+                    // Usa fetch con no-cors (più affidabile per Google Forms)
+                    await fetch(GOOGLE_FORM_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: new URLSearchParams(formData)
+                    });
+                    
+                    // Mostra modale di conferma
+                    const confirmationModal = document.getElementById('confirmationModal');
+                    confirmationModal.classList.add('active');
+                    
+                    // Reset del form
+                    rsvpForm.reset();
+                    conditionalFields.classList.remove('visible');
+                    
+                    // Reset delle restrizioni
+                    Object.keys(restrictionCounts).forEach(key => delete restrictionCounts[key]);
+                    document.querySelectorAll('input[name="allergies[]"], input[name="diet[]"]').forEach(cb => {
+                        cb.checked = false;
+                        cb.disabled = true;
+                        cb.parentElement.classList.add('disabled');
+                    });
+                    
+                } catch (error) {
+                    alert('Si è verificato un errore. Riprova più tardi o contattaci direttamente.');
+                }
+            });
+            
+            // Gestione modale conferma
+            const confirmationModal = document.getElementById('confirmationModal');
+            const closeConfirmation = document.getElementById('closeConfirmation');
+            
+            closeConfirmation.addEventListener('click', () => {
+                confirmationModal.classList.remove('active');
+            });
+            
+            confirmationModal.addEventListener('click', (e) => {
+                if (e.target === confirmationModal) {
+                    confirmationModal.classList.remove('active');
+                }
             });
             
             // Animazione al caricamento della pagina
@@ -886,6 +1608,46 @@
                     document.querySelector('header').style.padding = '0';
                 } else {
                     document.querySelector('header').style.padding = '0';
+                }
+            });
+            
+            // Funzione copia IBAN
+            const copyIbanBtn = document.getElementById('copyIbanBtn');
+            const copyFeedback = document.getElementById('copyFeedback');
+            const ibanNumber = 'IT39Z0503401753000000123290';
+            
+            copyIbanBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(ibanNumber);
+                    
+                    // Mostra feedback
+                    copyFeedback.classList.add('show');
+                    
+                    // Nascondi feedback dopo 3 secondi
+                    setTimeout(() => {
+                        copyFeedback.classList.remove('show');
+                    }, 3000);
+                    
+                } catch (err) {
+                    // Fallback per browser che non supportano l'API clipboard
+                    const textArea = document.createElement('textarea');
+                    textArea.value = ibanNumber;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        copyFeedback.classList.add('show');
+                        setTimeout(() => {
+                            copyFeedback.classList.remove('show');
+                        }, 3000);
+                    } catch (err) {
+                        alert('Impossibile copiare l\'IBAN. Copialo manualmente: ' + ibanNumber);
+                    }
+                    
+                    document.body.removeChild(textArea);
                 }
             });
         </script>
